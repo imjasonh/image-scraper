@@ -6,7 +6,7 @@ on:
     branches: ['main']
     paths-ignore: ['README.md']
   schedule:
-  - cron: '0 6 * * *' # Daily at 6 AM
+  - cron: '23 * * * *' # Hourly at X:23
 
 permissions:
   contents: write
