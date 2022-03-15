@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"encoding/json"
 	"flag"
-	"fmt"
 	"io"
 	"log"
 	"os"
@@ -55,12 +55,6 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		return err
 	}
 
-	out, err := os.OpenFile(repo.String(), os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer out.Close()
-
 	ls, err := remote.List(repo, remote.WithContext(ctx))
 	if err != nil {
 		log.Fatal(err)
@@ -81,7 +75,14 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Fprintln(out, tag, desc.Digest)
+
+		b, err := json.Marshal(desc)
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile(tag.String(), b, 0644); err != nil {
+			return err
+		}
 
 		if *full {
 			rd := repo.Digest(desc.Digest.String())
@@ -110,12 +111,7 @@ func crawlImage(ctx context.Context, rd name.Digest) error {
 		if err != nil {
 			return err
 		}
-		mf, err := os.Create(fn)
-		if err != nil {
-			return err
-		}
-		defer mf.Close()
-		if _, err := io.Copy(mf, bytes.NewReader(rdesc.Manifest)); err != nil {
+		if err := os.WriteFile(fn, rdesc.Manifest, 0644); err != nil {
 			return err
 		}
 	} else if err != nil {
