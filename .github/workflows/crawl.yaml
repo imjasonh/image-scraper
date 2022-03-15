@@ -21,7 +21,7 @@ jobs:
         go-version: 1.17.x
 
     - run: |
-        go run ./ --full
+        go run ./ --full || echo "FAILED"
 
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
