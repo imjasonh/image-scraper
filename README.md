@@ -4,27 +4,28 @@
 
 This repo periodically crawls popular base images and tracks what tags exist, and what digests they point to.
 
+If you'd like to start tracking another base image, [send a PR to add it here](https://github.com/imjasonh/image-scraper/edit/main/images.txt)!
+
 ### How is this useful?
 
-It scrapes and caches image and index manifests. This could be useful if you want to avoid rate limiting, but GitHub also rate-limits, so I doubt it's very useful. The crawl would lag up to an hour anyway (longer if it's broken and I haven't fixed it yet!)
+It scrapes and caches image and index manifests. This could be useful if you want to avoid rate limiting on manifest `GET`s, but GitHub also rate-limits, so I doubt it's very useful. The crawl would lag up to an hour anyway (longer if it's broken and I haven't fixed it yet!).
 
-The main reason I wrote this is to try to detect base images for built images.
+Since history is also preserved here, you could use this repo to go back in time and discovery what a tag pointed to at some point in the repo's very short history.
+
+But the main reason I wrote this is to try to detect base images for built images.
 
 The crawl also generates an [index](./index.txt) of a layer digest and its position in the base image, to the image that contains it (and platform, for multiplatform images).
 
-The index looks like this:
+A line in the index looks like this:
 
 ```
 ...
 sha256:29291e31a76a7e560b9b7ad3cada56e8c18d50a96cca8a2573e4f4689d7aca77 0 * index.docker.io/library/alpine:3.14.1 linux/amd64
-sha256:292e8cd7ee20f1ac032e6ca9196fda517ae1ba62f4c8e6393f69e75c97639701 0 * index.docker.io/library/debian:bullseye-20200908-slim linux/mips64le
-sha256:293b44f451623251bf75ce5a72d3cee63706972c88980232217a81026987f63e 2 - index.docker.io/library/ubuntu:xenial-20190610 linux/amd64
-sha256:2941ecd8ffcace2a2ed621a00e6c9a63554f2ceff12d1bffc6b488aec74dbd1a 0 * index.docker.io/library/debian:unstable-20210408-slim linux/arm64/v8
 ...
 ```
 
-The top line indicates that layer `sha256:28281e` is the 0th and final layer in `alpine:3.14`'s image for `linux/amd64`.
-So if your image's 0th layer is also that, it may be based on `alpine:3.14`.
+This line indicates that layer `sha256:28281e` is the 0th and final layer in `alpine:3.14`'s image for `linux/amd64`.
+So if your image's 0th layer is also that, it may be based on `alpine:3.14`!
 
 The index also includes these lines (though not adjacent in the file):
 
@@ -39,3 +40,20 @@ This shows all four layers of `ubuntu:xenial` for `linux/amd64`.
 If those four layers are the bottom-most four layers of your image (until you encounter the `*`), your image may be based on `ubuntu:xenial`.
 
 Detecting an image's base image can be useful for determining if it should be rebuilt or rebased when a newer base image is available.
+
+But there's a problem!
+
+If your image was built with a Dockerfile that's `FROM alpine:latest`, at a time when `alpine:latest` also pointed to `alpine:3` and `alpine:3.15` and `alpine:3.15.0`, then it will be impossible to tell which of these tracks to follow when you want to upgrade.
+
+You can use the index to tell that your base layer is `sha256:59bf1c`, and that that matches a whole base image, but there are multiple matches:
+
+```
+sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:3 linux/amd64
+sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:3.15.0 linux/amd64
+sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:latest linux/amd64
+sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:3.15 linux/amd64
+```
+
+A potential future rebuild detection tool could prompt for a user's decision about which upgrade track to take, or be configured to always take the slowest or fastest upgrade path, but that's not very automatic.
+
+_(This is another good reason not to build `FROM :latest`!)_
