@@ -46,7 +46,7 @@ Detecting an image's base image can be useful for determining if it should be re
 
 But there's a problem!
 
-If your image was built with a Dockerfile that's `FROM alpine:latest`, at a time when `alpine:latest` also pointed to `alpine:3` and `alpine:3.15` and `alpine:3.15.0`, then it will be impossible to tell which of these tracks to follow when you want to upgrade.
+If your image was built with a Dockerfile that's `FROM alpine:latest`, at a time when `alpine:latest` also pointed to `alpine:3` and `alpine:3.15` and `alpine:3.15.0`, then it will be impossible to tell which of these tracks you intend to follow when you want to upgrade.
 
 You can use the index to tell that your base layer is `sha256:59bf1c`, and that that matches a whole base image, but there are multiple matches:
 
@@ -57,6 +57,8 @@ sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * inde
 sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:3.15 linux/amd64
 ```
 
-A potential future rebuild detection tool could prompt for a user's decision about which upgrade track to take, or be configured to always take the slowest or fastest upgrade path, but that's not very automatic.
+When `:latest` is updated to point to something else, it would presumably also change `:3` and `:3.15` to point to something else, and we'd eventually only be able to tell you were based on `:3.15.0`.
 
-_(This is another good reason not to build `FROM :latest`!)_
+So if you were `FROM :latest`, using this index, you'd eventually only be able to upgrade you along the most specific (i.e., slowest moving) matching base image.
+
+_(This is a good reason not to `FROM :latest`!)_
