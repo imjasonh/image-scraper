@@ -21,7 +21,8 @@ jobs:
         go-version: 1.17.x
 
     - run: |
-        go run ./ --full || echo "FAILED"
+        go run ./cmd/crawl --full --verbose || echo "CRAWL FAILED"
+        go run ./cmd/index
 
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
