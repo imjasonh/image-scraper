@@ -21,7 +21,7 @@ jobs:
         go-version: 1.17.x
 
     - run: |
-        go run ./cmd/crawl --full --verbose || echo "CRAWL FAILED"
+        go run ./cmd/crawl --full -v || echo "CRAWL FAILED"
         go run ./cmd/index
 
         git config user.name "Automated"
