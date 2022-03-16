@@ -10,7 +10,8 @@ It also scrapes and caches image and index manifests.
 
 I don't know. _Maybe?_
 
-The scraper also generates an index of layer digest and its position in the base image, to the image that contains it (and platform, for multiplatform images).
-This means it might be useful for detecting the base image for a given image, if that image's Nth layer matches the base image's Nth layer, for all layers in the base image.
+The scraper also generates an [index](./index.txt) of a layer digest and its position in the base image, to the image that contains it (and platform, for multiplatform images).
+
+This means it might be useful for detecting the base image for a given image, if that image's Nth layer matches the base image's Nth layer, for all layers in the base image -- the base image's topmost layer is marked with a `*`, otherwise `-` if there are more layers.
 
 Detecting an image's base image can be useful for determining if it should be rebuilt or rebased using a newer base image.

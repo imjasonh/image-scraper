@@ -151,10 +151,15 @@ func indexRepo(ctx context.Context) error {
 		return err
 	}
 
+	// Reverse the entries from tag->[]layer, to ~ layer->tag, with idx and top-*
 	bylayer := [][]string{}
 	for _, e := range entries {
 		for idx, l := range e.layers {
-			bylayer = append(bylayer, []string{l, fmt.Sprintf("%d", idx), e.tag, e.plat})
+			top := "-"
+			if idx == len(e.layers)-1 {
+				top = "*"
+			}
+			bylayer = append(bylayer, []string{l, fmt.Sprintf("%d", idx), top, e.tag, e.plat})
 		}
 	}
 	sort.Slice(bylayer, func(i, j int) bool {
