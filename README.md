@@ -62,3 +62,13 @@ When `:latest` is updated to point to something else, it would presumably also c
 So if you were `FROM :latest`, using this index, you'd eventually only be able to upgrade you along the most specific (i.e., slowest moving) matching base image.
 
 _(This is a good reason not to `FROM :latest`!)_
+
+[`cmd/detect`](./cmd/detect) is an early prototype that uses the index to detect possible base images.
+
+```
+$ go run ./cmd/detect gcr.io/imjasonh/alpine-with-git
+2022/03/16 10:24:18 possible match at layer 0: index.docker.io/library/alpine:3.14 linux/amd64
+2022/03/16 10:24:18 possible match at layer 0: index.docker.io/library/alpine:3.14.3 linux/amd64
+```
+
+This image was indeed built using a Dockerfile `FROM alpine:3.14.3`, which as of right now also happens to point to `alpine:3.14`.
