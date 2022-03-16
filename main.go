@@ -2,15 +2,16 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"context"
 	"encoding/json"
 	"flag"
-	"io"
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
+	"strings"
 
 	"github.com/google/go-containerregistry/pkg/name"
 	v1 "github.com/google/go-containerregistry/pkg/v1"
@@ -23,7 +24,8 @@ var (
 )
 
 var (
-	full = flag.Bool("full", false, "if true, crawl manifests")
+	full      = flag.Bool("full", false, "if true, crawl manifests (may incur registry GETs")
+	indexonly = flag.Bool("indexonly", false, "if true, only regenerate index from local files")
 )
 
 func main() {
@@ -36,17 +38,137 @@ func main() {
 	}
 	defer f.Close()
 
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		repo, err := name.NewRepository(scanner.Text())
-		if err != nil {
-			log.Fatal(err)
-		}
+	if !*indexonly {
+		scanner := bufio.NewScanner(f)
+		for scanner.Scan() {
+			repo, err := name.NewRepository(scanner.Text())
+			if err != nil {
+				log.Fatal(err)
+			}
 
-		if err := crawlRepo(ctx, repo); err != nil {
-			log.Fatal(err)
+			if err := crawlRepo(ctx, repo); err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
+	if err := indexRepo(ctx); err != nil {
+		log.Fatal(err)
+	}
+}
+
+type entry struct {
+	tag, plat string
+	layers    []string
+}
+
+func indexRepo(ctx context.Context) error {
+	entries := []entry{}
+
+	indexImage := func(path string, desc v1.Descriptor) error {
+		f, err := os.Open(filepath.Join("manifests", desc.Digest.String()))
+		if err != nil {
+			return err
+		}
+		defer f.Close()
+
+		mf, err := v1.ParseManifest(f)
+		if err != nil {
+			return err
+		}
+		ls := make([]string, 0, len(mf.Layers))
+		for _, l := range mf.Layers {
+			ls = append(ls, l.Digest.String())
+		}
+		var platstr string
+		if plat := desc.Platform; plat != nil {
+			platstr = plat.String()
+		}
+		entries = append(entries, entry{path, platstr, ls})
+		return nil
+	}
+	indexIndex := func(path string, desc v1.Descriptor) error {
+		f, err := os.Open(filepath.Join("manifests", desc.Digest.String()))
+		if err != nil {
+			return err
+		}
+		defer f.Close()
+		mf, err := v1.ParseIndexManifest(f)
+		if err != nil {
+			return err
+		}
+		for _, desc := range mf.Manifests {
+			switch {
+			case desc.MediaType.IsImage():
+				if err := indexImage(path, desc); err != nil {
+					return err
+				}
+			case desc.MediaType.IsIndex():
+				log.Println("BUG: cowardly refusing to index recursive index: ", desc.Digest)
+			default:
+				log.Println("BUG:", desc.Digest, "is not image or index:", desc.MediaType)
+			}
+		}
+		return nil
+	}
+
+	if err := filepath.Walk(".", func(path string, fi os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if fi.IsDir() {
+			return nil
+		}
+		if strings.HasPrefix(path, "manifests/") {
+			return filepath.SkipDir
+		}
+		if !strings.HasPrefix(path, "index.docker.io") &&
+			!strings.HasPrefix(path, "gcr.io") {
+			return nil
+		}
+
+		f, err := os.Open(path)
+		if err != nil {
+			return err
+		}
+		defer f.Close()
+		var desc v1.Descriptor
+		if err := json.NewDecoder(f).Decode(&desc); err != nil {
+			return err
+		}
+
+		switch {
+		case desc.MediaType.IsImage():
+			if err := indexImage(path, desc); err != nil {
+				return err
+			}
+		case desc.MediaType.IsIndex():
+			if err := indexIndex(path, desc); err != nil {
+				return err
+			}
+		}
+		return nil
+	}); err != nil {
+		return err
+	}
+
+	bylayer := [][]string{}
+	for _, e := range entries {
+		for idx, l := range e.layers {
+			bylayer = append(bylayer, []string{l, fmt.Sprintf("%d", idx), e.tag, e.plat})
+		}
+	}
+	sort.Slice(bylayer, func(i, j int) bool {
+		return bylayer[i][0] < bylayer[j][0]
+	})
+	f, err := os.OpenFile("index.txt", os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	for _, bl := range bylayer {
+		fmt.Fprintln(f, strings.Join(bl, " "))
+	}
+	return nil
 }
 
 func crawlRepo(ctx context.Context, repo name.Repository) error {
@@ -71,7 +193,7 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		}
 
 		log.Println("HEAD", tag)
-		desc, err := remote.Head(tag)
+		desc, err := remote.Head(tag, remote.WithContext(ctx))
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -130,12 +252,7 @@ func crawlIndex(ctx context.Context, rd name.Digest) error {
 		if err != nil {
 			return err
 		}
-		mf, err := os.Create(fn)
-		if err != nil {
-			return err
-		}
-		defer mf.Close()
-		if _, err := io.Copy(mf, bytes.NewReader(rdesc.Manifest)); err != nil {
+		if err := os.WriteFile(fn, rdesc.Manifest, 0644); err != nil {
 			return err
 		}
 	} else if err != nil {
