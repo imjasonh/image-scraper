@@ -9,13 +9,15 @@ This repo periodically crawls popular base images and tracks what tags exist, an
 
 If you'd like to start tracking another base image, [send a PR to add it here](https://github.com/imjasonh/image-scraper/edit/main/images.txt)!
 
-### How is this useful?
+## How is this useful?
 
 It scrapes and caches image and index manifests. This could be useful if you want to avoid rate limiting on manifest `GET`s, but GitHub also rate-limits, so I doubt it's very useful. The crawl would lag up to an hour anyway (longer if it's broken and I haven't fixed it yet!).
 
 Since history is also preserved here, you could use this repo to go back in time and discovery what a tag pointed to at some point in the repo's very short history.
 
 But the main reason I wrote this is to try to detect base images for built images.
+
+### Base Layer Index
 
 The crawl also generates an [index](./index.txt) of a layer digest and its position in the base image, to the image that contains it (and platform, for multiplatform images).
 
@@ -57,18 +59,28 @@ sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * inde
 sha256:59bf1c3509f33515622619af21ed55bbe26d24913cedbca106468a5fb37a50c3 0 * index.docker.io/library/alpine:3.15 linux/amd64
 ```
 
-When `:latest` is updated to point to something else, it would presumably also change `:3` and `:3.15` to point to something else, and we'd eventually only be able to tell you were based on `:3.15.0`.
+When `:latest` is updated to point to something else, it might also update `:3` and `:3.15` to point to something else, and if so we'd eventually only be able to tell you were based on `:3.15.0` specifically.
+
+If `:3.15.0` is also the last `:3.15`, or the last `:3`, then it will always be ambiguous with the other equivalent tags, and no rebuild will be needed.
 
 So if you were `FROM :latest`, using this index, you'd eventually only be able to upgrade you along the most specific (i.e., slowest moving) matching base image.
 
 _(This is a good reason not to `FROM :latest`!)_
 
+(All of the above assumes sane semver tagging. I have bad news for you about sane semver tagging...)
+
+---
+
 [`cmd/detect`](./cmd/detect) is an early prototype that uses the index to detect possible base images.
 
 ```
 $ go run ./cmd/detect gcr.io/imjasonh/alpine-with-git
-2022/03/16 10:24:18 possible match at layer 0: index.docker.io/library/alpine:3.14 linux/amd64
-2022/03/16 10:24:18 possible match at layer 0: index.docker.io/library/alpine:3.14.3 linux/amd64
+2022/03/16 10:38:06 possible match at layer 0: index.docker.io/library/alpine:3.14.2 linux/amd64
+2022/03/16 10:38:06 single matching base image found!
+index.docker.io/library/alpine:3.14.2
 ```
 
-This image was indeed built using a Dockerfile `FROM alpine:3.14.3`, which as of right now also happens to point to `alpine:3.14`.
+This image was indeed built using a [Dockerfile `FROM alpine:3.14.2`](./Dockerfile)!
+
+Having detected this, we could attempt to parse the semver tag and find there's a newer `:3.14`/`:3.14.3`, and even a newer `:3`/`:3.15`/`:3.15.0`.
+We could then attempt to rebuild the image on those new bases.

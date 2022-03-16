@@ -43,6 +43,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	prev := []entry{}
 	for i, l := range layers {
 		h, err := l.Digest()
 		if err != nil {
@@ -58,8 +59,18 @@ func main() {
 		}
 
 		if len(matches) == 0 {
+
+			// This latest layer isn't part of any base image, so we're done.
 			break
 		}
+
+		prev = matches
+	}
+
+	// We previously found exactly one match, so let's print it.
+	if len(prev) == 1 {
+		log.Println("single matching base image found!")
+		fmt.Println(prev[0].tag)
 	}
 }
 
