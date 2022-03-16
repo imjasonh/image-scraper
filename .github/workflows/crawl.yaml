@@ -23,6 +23,7 @@ jobs:
     - run: |
         go run ./cmd/crawl --full -v || echo "CRAWL FAILED"
         go run ./cmd/index
+        ./update-badges.sh
 
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"

@@ -2,6 +2,9 @@
 
 [![crawl](https://github.com/imjasonh/image-scraper/actions/workflows/crawl.yaml/badge.svg)](https://github.com/imjasonh/image-scraper/actions/workflows/crawl.yaml)
 
+![manifests cached](./manifests-cached.svg)
+![layers indexed](./layers-indexed.svg)
+
 This repo periodically crawls popular base images and tracks what tags exist, and what digests they point to.
 
 If you'd like to start tracking another base image, [send a PR to add it here](https://github.com/imjasonh/image-scraper/edit/main/images.txt)!
