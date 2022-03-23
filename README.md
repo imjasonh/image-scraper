@@ -13,7 +13,18 @@ If you'd like to start tracking another base image, [send a PR to add it here](h
 
 It scrapes and caches image and index manifests. This could be useful if you want to avoid rate limiting on manifest `GET`s, but GitHub also rate-limits, so I doubt it's very useful. The crawl would lag up to an hour anyway (longer if it's broken and I haven't fixed it yet!).
 
-Since history is also preserved here, you could use this repo to go back in time and discovery what a tag pointed to at some point in the repo's very short history.
+Since history is also preserved here, you could use this repo to go back in time and discover what a tag pointed to at some point in the repo's (very short) history.
+
+For example, to see if the digest of `alpine:latest` has changed since a week ago:
+
+```
+$ img=index.docker.io/library/alpine:latest
+$ diff <(git show "HEAD@{1 week ago}":$img | jq -r .digest) <(cat $img | jq -r .digest)
+1c1
+< sha256:21a3deaa0d32a8057914f36584b5288d2e5ecc984380bc0118285c70fa8c9300
+---
+> sha256:6af1b11bbb17f4c311e269db6530e4da2738262af5fd9064ccdf109b765860fb
+```
 
 GitHub also provides an undocumented RSS feed feature, which even lets you filter changes in certain paths.
 For example, you can subscribe to [changes to tags in `gcr.io/distroless/static`](https://github.com/imjasonh/image-scraper/commits/main.atom?path=gcr.io/distroless/static) in your RSS reader of choice.
