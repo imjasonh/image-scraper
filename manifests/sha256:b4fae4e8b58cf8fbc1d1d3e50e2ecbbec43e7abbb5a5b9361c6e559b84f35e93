@@ -1,0 +1,62 @@
+{
+   "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+   "schemaVersion": 2,
+   "manifests": [
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:5e56e9613aa67c265dd26dd7784306e405091fc0ed0c8999548550fb86211c4e",
+         "size": 527,
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:81eb992f53aeffcbdd845aabb85dc984a4faa98dd8929f9a7141f32837748006",
+         "size": 527,
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v6"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:534ec1e82e9a7facc2a934d822af95fca48f2954f85d6fb274a2aa83a584c02f",
+         "size": 527,
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v7"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:5c5e3aefa1761c51c2f2d0d3c5793fb86611421d4d98526d33bd187a7b8eb8b9",
+         "size": 527,
+         "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:74f208c03ad66012f800d4efd60889d57e3a4f97e6952c3e99545d376880ad6c",
+         "size": 527,
+         "platform": {
+            "architecture": "s390x",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:52f8f4fe439c76ac2f161809c6a9ff2fb4df40f9eb6867259b6df1efbab56b1b",
+         "size": 527,
+         "platform": {
+            "architecture": "ppc64le",
+            "os": "linux"
+         }
+      }
+   ]
+}

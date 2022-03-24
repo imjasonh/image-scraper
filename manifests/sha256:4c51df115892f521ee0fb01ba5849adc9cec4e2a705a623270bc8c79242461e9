@@ -1,0 +1,61 @@
+{
+   "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+   "schemaVersion": 2,
+   "manifests": [
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:140bce6d1b7e4300bf0ce53cd0f575c7973fa046a46ef8a5d0ee64abeb2d2403",
+         "size": 528,
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:1fbdd8b4a4b78cac16b0054b3067d8ffbd74dbe5dffe1549cca19903b85236b8",
+         "size": 528,
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v7"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:01cb2c67a71a8b4a72b9d50ac49f9a23132dc914e8713bb02577db0ac71e25bc",
+         "size": 528,
+         "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:fae40d4790c68f8a7dbba5637bf7ed139f67a734051e432d304ef0a4c291dba1",
+         "size": 528,
+         "platform": {
+            "architecture": "s390x",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:76733231090ff9047e0d1f58bc9371c3e155f0659dd07312ea7acbcced1fa7c6",
+         "size": 528,
+         "platform": {
+            "architecture": "ppc64le",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:89d650417ecb2d3452a6b8503e85e0993780891a15a5c1e60bdf3bb0b8e28fc0",
+         "size": 528,
+         "platform": {
+            "architecture": "riscv64",
+            "os": "linux"
+         }
+      }
+   ]
+}
