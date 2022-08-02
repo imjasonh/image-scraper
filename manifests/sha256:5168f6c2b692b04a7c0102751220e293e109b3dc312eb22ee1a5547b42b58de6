@@ -1,0 +1,70 @@
+{
+   "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+   "schemaVersion": 2,
+   "manifests": [
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:61186c7c3919b5b5431e648e706f99a58e836f5ef533f6c4406c798655559b01",
+         "size": 529,
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:c337b0616870db595d3b38dfbd7a36b859d298d9a8e74d2e0c9ae88e5c787310",
+         "size": 529,
+         "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:157ebe6fbc3ebccb3ab6061592ae9364a207b295d5c94c09de56bcf7adc772fc",
+         "size": 529,
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v7"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:eedaf7fd1e5f8770ff160c7ec44baec9373c642e197cf4e183f5815a390577ee",
+         "size": 529,
+         "platform": {
+            "architecture": "ppc64le",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:b4a6d0dbc013e6cec861037f809e771b50419c752fcccac011ad6b3233c5c5d7",
+         "size": 529,
+         "platform": {
+            "architecture": "s390x",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:0e2458c12a58387f8913ccbefd80549898306af0fcd9b682785a936e31097b7a",
+         "size": 529,
+         "platform": {
+            "architecture": "riscv64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "digest": "sha256:a9674db0283caa4df131d9e844f9a859d62313d1e1b72659c53efd9109dd25d4",
+         "size": 529,
+         "platform": {
+            "architecture": "386",
+            "os": "linux"
+         }
+      }
+   ]
+}
