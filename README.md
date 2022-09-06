@@ -84,7 +84,7 @@ _(This is a good reason not to `FROM :latest`!)_
 
 (All of the above assumes sane semver tagging. I have bad news for you about sane semver tagging...)
 
----
+## `cmd/detect`
 
 [`cmd/detect`](./cmd/detect) is an early prototype that uses the index to detect possible base images.
 
