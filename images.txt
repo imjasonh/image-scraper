@@ -46,7 +46,17 @@ gcr.io/distroless/static-debian10
 gcr.io/distroless/static-debian11
 gcr.io/distroless/static-debian9
 
-ghcr.io/distroless/static
-ghcr.io/distroless/alpine-base
-ghcr.io/distroless/musl-dynamic
-ghcr.io/distroless/busybox
+cgr.dev/chainguard/static
+cgr.dev/chainguard/nginx
+cgr.dev/chainguard/busybox
+cgr.dev/chainguard/wolfi-base
+cgr.dev/chainguard/go
+cgr.dev/chainguard/git
+cgr.dev/chainguard/glibc-dynamic
+cgr.dev/chainguard/musl-dynamic
+cgr.dev/chainguard/gcc-glibc
+cgr.dev/chainguard/gcc-musl
+
+# https://cloud.google.com/workstations/docs/preconfigured-base-images
+us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest
+us-central1-docker.pkg.dev/cloud-workstations-images/predefined/base:latest
