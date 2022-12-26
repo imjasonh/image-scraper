@@ -84,7 +84,7 @@ func indexRepo(ctx context.Context) error {
 			case desc.MediaType.IsIndex():
 				log.Println("BUG: cowardly refusing to index recursive index: ", desc.Digest)
 			default:
-				log.Println("BUG:", desc.Digest, "is not image or index:", desc.MediaType)
+				log.Println("BUG:", path, desc.Digest, "is not image or index:", desc.MediaType)
 			}
 		}
 		return nil

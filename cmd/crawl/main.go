@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"flag"
 	"log"
+	"net/http"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -14,6 +15,7 @@ import (
 	"github.com/google/go-containerregistry/pkg/name"
 	v1 "github.com/google/go-containerregistry/pkg/v1"
 	"github.com/google/go-containerregistry/pkg/v1/remote"
+	"github.com/google/go-containerregistry/pkg/v1/remote/transport"
 )
 
 var (
@@ -124,7 +126,14 @@ func crawlImage(ctx context.Context, rd name.Digest) error {
 	if _, err := os.Stat(fn); os.IsNotExist(err) {
 		log.Println("GET", rd)
 		rdesc, err := remote.Get(rd, remote.WithContext(ctx))
-		if err != nil {
+		if terr, ok := err.(*transport.Error); ok {
+			if terr.StatusCode == http.StatusTooManyRequests {
+				log.Println("got 429 trying to crawl; skipping", rd.DigestStr())
+				return nil
+			}
+			return err
+
+		} else if err != nil {
 			return err
 		}
 		if err := os.WriteFile(fn, rdesc.Manifest, 0644); err != nil {
@@ -145,7 +154,14 @@ func crawlIndex(ctx context.Context, rd name.Digest) error {
 	if _, err := os.Stat(fn); os.IsNotExist(err) {
 		log.Println("GET", rd)
 		rdesc, err := remote.Get(rd, remote.WithContext(ctx))
-		if err != nil {
+		if terr, ok := err.(*transport.Error); ok {
+			if terr.StatusCode == http.StatusTooManyRequests {
+				log.Println("got 429 trying to crawl; skipping", rd.DigestStr())
+				return nil
+			}
+			return err
+
+		} else if err != nil {
 			return err
 		}
 		if err := os.WriteFile(fn, rdesc.Manifest, 0644); err != nil {
