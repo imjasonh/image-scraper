@@ -21,6 +21,7 @@ import (
 var (
 	commitSHARE = regexp.MustCompile(`\b[0-9a-f]{40}\b`)
 	attRE       = regexp.MustCompile(`\.(sig|att|sbom|cosign)$`)
+	dateRE      = regexp.MustCompile(`[0-9]{8}$`)
 )
 
 var (
@@ -65,6 +66,7 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		return err
 	}
 
+	log.Println("LISTING TAGS:", repo)
 	ls, err := remote.List(repo, remote.WithContext(ctx))
 	if err != nil {
 		log.Fatal(err)
@@ -80,6 +82,12 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		if attRE.MatchString(t) {
 			if *verbose {
 				log.Println("cowardly refusing to crawl attachment:", tag)
+			}
+			continue
+		}
+		if dateRE.MatchString(t) {
+			if *verbose {
+				log.Println("cowardly refusing to crawl date-tagged image:", tag)
 			}
 			continue
 		}
