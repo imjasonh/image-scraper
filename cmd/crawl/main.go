@@ -22,12 +22,12 @@ var (
 	commitSHARE = regexp.MustCompile(`\b[0-9a-f]{40}\b`)
 	attRE       = regexp.MustCompile(`\.(sig|att|sbom|cosign)$`)
 	dateRE      = regexp.MustCompile(`[0-9]{8}$`)
-)
 
-var (
 	full    = flag.Bool("full", false, "if true, crawl manifests (may incur registry GETs")
 	verbose = flag.Bool("v", false, "if true, log verbosely")
 )
+
+const userAgent = "github.com/imjasonh/image-scraper"
 
 func main() {
 	flag.Parse()
@@ -67,7 +67,7 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 	}
 
 	log.Println("LISTING TAGS:", repo)
-	ls, err := remote.List(repo, remote.WithContext(ctx))
+	ls, err := remote.List(repo, remote.WithContext(ctx), remote.WithUserAgent(userAgent))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -95,7 +95,7 @@ func crawlRepo(ctx context.Context, repo name.Repository) error {
 		if *verbose {
 			log.Println("HEAD", tag)
 		}
-		desc, err := remote.Head(tag, remote.WithContext(ctx))
+		desc, err := remote.Head(tag, remote.WithContext(ctx), remote.WithUserAgent(userAgent))
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -133,7 +133,7 @@ func crawlImage(ctx context.Context, rd name.Digest) error {
 	fn := filepath.Join("manifests", rd.DigestStr())
 	if _, err := os.Stat(fn); os.IsNotExist(err) {
 		log.Println("GET", rd)
-		rdesc, err := remote.Get(rd, remote.WithContext(ctx))
+		rdesc, err := remote.Get(rd, remote.WithContext(ctx), remote.WithUserAgent(userAgent))
 		if terr, ok := err.(*transport.Error); ok {
 			if terr.StatusCode == http.StatusTooManyRequests {
 				log.Println("got 429 trying to crawl; skipping", rd.DigestStr())
@@ -161,7 +161,7 @@ func crawlIndex(ctx context.Context, rd name.Digest) error {
 	fn := filepath.Join("manifests", rd.DigestStr())
 	if _, err := os.Stat(fn); os.IsNotExist(err) {
 		log.Println("GET", rd)
-		rdesc, err := remote.Get(rd, remote.WithContext(ctx))
+		rdesc, err := remote.Get(rd, remote.WithContext(ctx), remote.WithUserAgent(userAgent))
 		if terr, ok := err.(*transport.Error); ok {
 			if terr.StatusCode == http.StatusTooManyRequests {
 				log.Println("got 429 trying to crawl; skipping", rd.DigestStr())
