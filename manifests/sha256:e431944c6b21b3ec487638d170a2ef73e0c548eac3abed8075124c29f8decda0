@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.index.v1+json",
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 2275,
+      "digest": "sha256:c01265a6c0bae3633123f29e5aa3c9142061f2efe4476bb0fb54eeb43b202f12",
+      "platform": {
+        "os": "linux",
+        "architecture": "amd64"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 2275,
+      "digest": "sha256:c0f045607db80d946ead5cb1399bb971e9c43b697f9142ba976d5c08b7f0fec3",
+      "platform": {
+        "os": "linux",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 2275,
+      "digest": "sha256:4688ca05e7dc12774c67e671ba8c49ccb16a8305e03e6e7fa2c72c358e981e21",
+      "platform": {
+        "os": "linux",
+        "architecture": "arm"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 2275,
+      "digest": "sha256:bd1d557ca5bd05a97264f92ced218cb22a5652b794e59d726a10092f475a71a1",
+      "platform": {
+        "os": "linux",
+        "architecture": "s390x"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 2275,
+      "digest": "sha256:71b874ed4c6794cc9b42afcd480850b757db8a739bc52eb6f09c49f07f35fba6",
+      "platform": {
+        "os": "linux",
+        "architecture": "ppc64le"
+      }
+    }
+  ]
+}
