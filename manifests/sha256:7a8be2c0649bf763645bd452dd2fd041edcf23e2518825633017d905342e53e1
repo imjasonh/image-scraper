@@ -1,0 +1,62 @@
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+   "manifests": [
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1573,
+         "digest": "sha256:91b2670b4001d6c503cd704491c2cfc4a38281b89eab56ec734758cb92d58464",
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1780,
+         "digest": "sha256:64a13b70522fd58615ba4b82441679c1454ae1a40dc6752a0f965d7b8de21c32",
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v6"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1780,
+         "digest": "sha256:bc623d8e642090896721678418822671bb13c98a83556ae7b341453b11d843a7",
+         "platform": {
+            "architecture": "arm64",
+            "os": "linux",
+            "variant": "v8"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1780,
+         "digest": "sha256:f00f673dbb7066dd18b37045f3139ec3eb0f0c50d060fc284a2193fd93398f3a",
+         "platform": {
+            "architecture": "386",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1780,
+         "digest": "sha256:d79cfc59b1546f5b8f3a2bd3f777c55597e6e2a33a9269c34756739cc2a1b039",
+         "platform": {
+            "architecture": "ppc64le",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 1780,
+         "digest": "sha256:e6855bcaf2aa643a6d849c1b505310657fc9f3601875859e47a85d4bbcb48fe8",
+         "platform": {
+            "architecture": "s390x",
+            "os": "linux"
+         }
+      }
+   ]
+}

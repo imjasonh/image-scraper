@@ -1,0 +1,44 @@
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+   "manifests": [
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 2009,
+         "digest": "sha256:d8ad405f434b2829a3f4584447cfd73695b3c32667726ef96e93f30d613c3140",
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 2009,
+         "digest": "sha256:79b35e1b503de52f6d7e4d1b53d4901fad70e60f52dddc0e7045ddb02e609a36",
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v5"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 2009,
+         "digest": "sha256:c7ab8729a92cda5c04e5d00ec13a56534b6dcea80315983308d35aee7e233004",
+         "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v7"
+         }
+      },
+      {
+         "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+         "size": 2010,
+         "digest": "sha256:13177448572941d54c275252a1a17eb7ccf3c12f0df1dea83a0fd381ec8622dc",
+         "platform": {
+            "architecture": "386",
+            "os": "linux"
+         }
+      }
+   ]
+}
