@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.index.v1+json",
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 7133,
+      "digest": "sha256:ae5236e5320dd11c4edc23b4d8c7d57536fdf2f9f98ffc2a34c89d5a259f0beb",
+      "platform": {
+        "os": "linux",
+        "architecture": "amd64"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 7134,
+      "digest": "sha256:2688ace01e3dfd85eb8451d1dc8e10d7e452f62cb57486a992634fcce14e8c6c",
+      "platform": {
+        "os": "linux",
+        "architecture": "arm64",
+        "variant": "v8"
+      }
+    }
+  ]
+}
