@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.index.v1+json",
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:22099350b6baffdd4d64a477f378e4a5cfc32a36d530a1fae058281cae06d032",
+      "size": 674,
+      "platform": {
+        "architecture": "amd64",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:5cc2dbfd270c274b5e957ae5745fcc14267bd64e31fa69bfe3b5d9a5a71b618b",
+      "size": 674,
+      "platform": {
+        "architecture": "arm64",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:93b9a60f88bd59b460170baff6e78ebe1eb782ce1f7ea702170d87a559a08fbb",
+      "size": 674,
+      "platform": {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v6"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:21d13c77ba65a687153269685614a3595ca234f500c45101384177b42a68ee83",
+      "size": 674,
+      "platform": {
+        "architecture": "arm",
+        "os": "linux",
+        "variant": "v7"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:16de79335a2d30fb39cbc19e42821a3e8a46d45192faa38f826a7740c95af99b",
+      "size": 674,
+      "platform": {
+        "architecture": "ppc64le",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:97c3ee5c496163ceb3ea75d5d05811ee74bb5d2f4d83567ca70a97b1b0eab217",
+      "size": 674,
+      "platform": {
+        "architecture": "s390x",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:f8902334700833d4064c63d576b1cbd2d2704166150c520e7a738090809fd0fd",
+      "size": 674,
+      "platform": {
+        "architecture": "riscv64",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:8a6e85d359513b1a2ca8ff37b4d2d50c340769d4384081cf5b9f14f599cb880b",
+      "size": 674,
+      "platform": {
+        "architecture": "386",
+        "os": "linux"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:e312f1714c6d39d7b360bc3bc4718767b4b0b8b39cfbb7f563b384caf0ca3de4",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:22099350b6baffdd4d64a477f378e4a5cfc32a36d530a1fae058281cae06d032",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:1eae8b15cc290e29a25ccbe3d789afbcedeb6fcc77fa11bbac13637a8247f8f4",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:5cc2dbfd270c274b5e957ae5745fcc14267bd64e31fa69bfe3b5d9a5a71b618b",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:688dcf777d8abd8726272414d869431253086db85fc2a66e0df283b15f28b8df",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:93b9a60f88bd59b460170baff6e78ebe1eb782ce1f7ea702170d87a559a08fbb",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:b438786fd58ff5dea9aa3d6513d0c435caf390d737de0ff18abd8fa9f9894aa2",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:21d13c77ba65a687153269685614a3595ca234f500c45101384177b42a68ee83",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:b4e4d3d7000fbed2b42b3a7387a4ea5cf7e76f10edca7ad4e9c043e99f847312",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:16de79335a2d30fb39cbc19e42821a3e8a46d45192faa38f826a7740c95af99b",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:e5c0e73fa3e72ebf81e4b6942825ee5bac960e7cae28bb5f9c31f5601798611e",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:97c3ee5c496163ceb3ea75d5d05811ee74bb5d2f4d83567ca70a97b1b0eab217",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:7a0a598c3773202ab832b2c3831e4cfc7b180e014c50173fceeafce0a1dc46f3",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:f8902334700833d4064c63d576b1cbd2d2704166150c520e7a738090809fd0fd",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:d326c5d0ed2c5176d00a2dff9f1465ce9ce170495cec93ecc09850bb7b224159",
+      "size": 566,
+      "annotations": {
+        "vnd.docker.reference.digest": "sha256:8a6e85d359513b1a2ca8ff37b4d2d50c340769d4384081cf5b9f14f599cb880b",
+        "vnd.docker.reference.type": "attestation-manifest"
+      },
+      "platform": {
+        "architecture": "unknown",
+        "os": "unknown"
+      }
+    }
+  ]
+}
