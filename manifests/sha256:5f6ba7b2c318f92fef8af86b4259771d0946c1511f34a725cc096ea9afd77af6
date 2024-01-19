@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:2718a69a8335fc78dae00b4582b6ed46baa38a9400be180a1e033d0fecef9028",
+    "size": 594
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:89c1f14caf35daefcfa33fa015551e6e47796aa0e5bc3f4b51b1c95e121bc7aa",
+      "size": 764066
+    }
+  ],
+  "annotations": {
+    "org.opencontainers.image.revision": "5f49fc0f041f4e31f1d63053aff7e21119b13c92",
+    "org.opencontainers.image.source": "https://github.com/docker-library/busybox.git#5f49fc0f041f4e31f1d63053aff7e21119b13c92:latest/uclibc",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/busybox",
+    "org.opencontainers.image.version": "1.36.1-uclibc"
+  }
+}
