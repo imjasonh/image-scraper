@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:8dbb8abb764d5a0caf0f6790fa5b014d22fb63eee9c0717487fbd1465ef8a502",
+    "size": 2839
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:9027b64136d8b1ece1ad24cca3199e496689a33f47b8d112dbdd112c682e665f",
+      "size": 53579748
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:18e147daa0a988c77940b565d177a661a73270a0e821c65283b9e531ae38ebc4",
+      "size": 25699676
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b88d9ff0405bb000dedfa15a3a34739370c3daa10367599bff02a57fd19a3564",
+      "size": 69584088
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:d5afd4d08d4f3ef4aa04e2f23a8cff9d41f980dbbf80bda32d92064a3694ca84",
+      "size": 90187142
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b672324861585f05676c004287c9eeb3ec624b063c08e6689139af3a2f1ed3df",
+      "size": 64129414
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:c762b54db16cab1d230ad90f9542e11fa50bf69e80895f12d519b1ed61162088",
+      "size": 126
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "ppc64le",
+    "org.opencontainers.image.base.digest": "sha256:3b8246fbba99cc2e0111674a50e104b1d8137b9d16da58c380178086ef2bce0d",
+    "org.opencontainers.image.base.name": "buildpack-deps:bookworm-scm",
+    "org.opencontainers.image.created": "2024-05-07T16:28:41Z",
+    "org.opencontainers.image.revision": "777111946489bad416e54e378d580f2518632a82",
+    "org.opencontainers.image.source": "https://github.com/docker-library/golang.git#777111946489bad416e54e378d580f2518632a82:1.21/bookworm",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/golang",
+    "org.opencontainers.image.version": "1.21.10-bookworm"
+  }
+}
