@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:111549fef195203e246b77dd2a1ed866733a1c674d14795072ac55b0a9bca284",
+    "size": 2828
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:ab8c2df85dcd39d367cf1116e6aa73c53bbbd9e40b1c09e65b70b58871ceff91",
+      "size": 56076538
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:72b98f88bb530423206e6a932f7a0f7e81cc72458b59be08bcec8aa0490df79e",
+      "size": 16268880
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:1c4e6f3cca702057a7a6cdbd9b2d2f758e1d85524fdc9fc26824db70376bce11",
+      "size": 55929392
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f3392ebb6eabf3fc31af937817d794eecb8ae672de6fc63dfecfc6a39196980c",
+      "size": 87351242
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:689c88ab61a1dc66fc6735d6f2863be085ddeb2f22026b5932d928d0d686adf0",
+      "size": 65456882
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:03ed70786cabcf70d74d7021f7908ce044adacedbc4e84a2fe88cf8fe42341bc",
+      "size": 126
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "i386",
+    "org.opencontainers.image.base.digest": "sha256:0c519e89989efdac4290b4b0ea4aed2b2f2b94a00bc40e72c70a635c4cc85cf6",
+    "org.opencontainers.image.base.name": "buildpack-deps:bullseye-scm",
+    "org.opencontainers.image.created": "2024-06-04T19:03:29Z",
+    "org.opencontainers.image.revision": "d92abc1f4a90239f955653f24f69a023d5d1d749",
+    "org.opencontainers.image.source": "https://github.com/docker-library/golang.git#d92abc1f4a90239f955653f24f69a023d5d1d749:1.21/bullseye",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/golang",
+    "org.opencontainers.image.version": "1.21.11-bullseye"
+  }
+}
