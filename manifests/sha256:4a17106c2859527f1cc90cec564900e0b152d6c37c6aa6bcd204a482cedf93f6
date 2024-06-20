@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:85a6d14b353f1c57f3937c1e58cc97d8e50f54c6c6aa8b02fc23f183e4e96f66",
+    "size": 167
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.in-toto+json",
+      "digest": "sha256:91eb66780ed26e8b4b6eb8a6aa6f2d1ef20d0b1cd0390ebd3a25561d39a80f1d",
+      "size": 23789,
+      "annotations": {
+        "in-toto.io/predicate-type": "https://slsa.dev/provenance/v0.2"
+      }
+    }
+  ]
+}
