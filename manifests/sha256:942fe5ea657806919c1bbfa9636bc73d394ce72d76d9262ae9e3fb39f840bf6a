@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:908db3c799ec1362e7673022f6b9e484cc36b05047b5612f6dfc0015353b1b10",
+    "size": 6556
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:36ba9c8baad7d50b1a4b523006966a56ab736274cf5108a528d21b65d3e5927b",
+      "size": 46129853
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:bde0a02dfec0ceee2c7c23d86d1a306cffd3a1c9b4907db8b4fa768c14abd3ad",
+      "size": 16216998
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:38716c4e5c9c098df6d6fe31c91df92948117751c7c1013c686dbf50412911c7",
+      "size": 47411218
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:1dab4bbcbf00be5a105a2cebda6ada1b414a3d28291fd966b1738ab058d8851e",
+      "size": 168170017
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:bb9a62a9de91ab94aa91bd64bed58bc1ee18a91bde651f32c55c06f64e66d422",
+      "size": 4082
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:fb5f19fb9e7f01f668b182f6a3f7df1b683fbc015ca0faa4caec170c438f42ee",
+      "size": 42306725
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:951bb8d8ceb7f179cddd45d02ba08e737bbd3b23f3851d9ad0f58507205ceab3",
+      "size": 1247032
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:d995c2f620f250ee702a1efc379d91d489058ac7375898574671a2bac79cdaf1",
+      "size": 453
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "arm32v7",
+    "org.opencontainers.image.base.digest": "sha256:ff09ed26f09978f2506aab2a677256e431d42b649a990de694aaaeeef9c77bde",
+    "org.opencontainers.image.base.name": "buildpack-deps:buster",
+    "org.opencontainers.image.created": "2024-05-21T13:48:08Z",
+    "org.opencontainers.image.revision": "d3965ef329265accff145164f06653216e416685",
+    "org.opencontainers.image.source": "https://github.com/nodejs/docker-node.git#d3965ef329265accff145164f06653216e416685:18/buster",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/node",
+    "org.opencontainers.image.version": "18-buster"
+  }
+}

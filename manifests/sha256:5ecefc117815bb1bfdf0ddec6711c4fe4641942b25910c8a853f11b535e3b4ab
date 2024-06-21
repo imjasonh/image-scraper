@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:70100dbd3648beb4a75e237c68745aa0da7cddf2bfe1df2da30754129e70eb3c",
+    "size": 6864
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:7abf9f73c7747bb840a8edcd895830e53f09498136de3015568a9cd9f5ab10ed",
+      "size": 26109272
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:1315af9be5adb3f6947aaec3808ccc417f714db527ff88eb653f477d97f8ea4e",
+      "size": 4083
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:56c9a2ee2d2dbffc23032b99bfb846cbaac276bb13b30c15891ce75f38bb1ace",
+      "size": 40504442
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:bc6f40d1d877c49a8bd8b0c9a1fc01979e36a1ec39ac9333c151974a4981a550",
+      "size": 1707578
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:201981d7f056562c39f922b7c886b73d2887483219286b1696c92c42c0ac09f0",
+      "size": 451
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "arm64v8",
+    "org.opencontainers.image.base.digest": "sha256:7c4d2a7d6cf0863888c4dbe1207211c5a7c2eaa6374a51b5d4cc02dd0dd95099",
+    "org.opencontainers.image.base.name": "debian:buster-slim",
+    "org.opencontainers.image.created": "2024-05-28T18:47:58Z",
+    "org.opencontainers.image.revision": "daea62837e99456d7556b585edbc2b32fb57369e",
+    "org.opencontainers.image.source": "https://github.com/nodejs/docker-node.git#daea62837e99456d7556b585edbc2b32fb57369e:20/buster-slim",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/node",
+    "org.opencontainers.image.version": "20-buster-slim"
+  }
+}
