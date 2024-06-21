@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:102084a8b3700537d3eae057a7595a546e2bf52dd303e8615ce2cb7a4b47e6fc",
+    "size": 2089
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4007367bb0cf596fd27d2207989b3864272eb2e5caf7429c07e68abc3bd47b0c",
+      "size": 2926498
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:9bfa767a93a70063fc0a28448ffd4d9f2a66f0b7b9295e5d57b651fabf038366",
+      "size": 293102
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:bbb69df4c8f6e7a363e7f4b5ceeecea013f9a1bb05553d7c6a629fae4d4c46bc",
+      "size": 65766634
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:1048f813f9cca4d9519525a5155728a02a91d6f2092b5ffc4db4729c4a7182b5",
+      "size": 126
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "arm32v7",
+    "org.opencontainers.image.base.digest": "sha256:6cd7a5c868b12cf98a34451468f01a434c31825f8a562f2644a982a4bd0dc797",
+    "org.opencontainers.image.base.name": "alpine:3.19",
+    "org.opencontainers.image.created": "2024-06-13T20:46:13Z",
+    "org.opencontainers.image.revision": "81c0d3115b37997c04828faba09440fd9fffce33",
+    "org.opencontainers.image.source": "https://github.com/docker-library/golang.git#81c0d3115b37997c04828faba09440fd9fffce33:1.21/alpine3.19",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/golang",
+    "org.opencontainers.image.version": "1.21.11-alpine3.19"
+  }
+}
