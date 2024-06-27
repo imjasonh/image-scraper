@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:2f5502349f38998614ce347cf441827f78c08014cfe4ccd5c3cdd01bb6380198",
+    "size": 7272
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:7afd12f588c414c122b8d3022d60effda2738a394347f5b3cbdebfe1420a8bf8",
+      "size": 58968957
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:918a353cdc3445173a18fe2f058dd7abb46fe3acfde05a65233cd1b979bd3d09",
+      "size": 16766853
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:c44a70314a2227a3d4a36c3baefe93d6e718bb4dd984f85adc8cb091a68f88b3",
+      "size": 58874053
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:719a9ab0cabd6aa0929d32efa72a27e1b7732e1c13c57af740a74747a17626bb",
+      "size": 196370976
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:42bd587d1533d19ad7a7da428c14230b3e6f787dc6d4ce07b7a4425407a0b3df",
+      "size": 6801814
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0124b06cf63032ab4f8429253269a6827df19f7ad8122dcba1df65b9029164b4",
+      "size": 17433873
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:af6fd17843f08d14c765ba1e5357cc0bb88c72d3eb362a6693d17f83656d038c",
+      "size": 231
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:e5382df210508e23a354c5fb3b3b6aaff97cf7b01b5e58b81a022454749e29b0",
+      "size": 3081148
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "ppc64le",
+    "org.opencontainers.image.base.digest": "sha256:6b97ee6a6e63a9a44403c98bf0e89c552f585000395a7f64f27f1dbf75faa04f",
+    "org.opencontainers.image.base.name": "buildpack-deps:bullseye",
+    "org.opencontainers.image.created": "2024-03-21T23:32:08Z",
+    "org.opencontainers.image.revision": "1b7a1106674a21e699b155cbd53bf39387284cca",
+    "org.opencontainers.image.source": "https://github.com/docker-library/python.git#1b7a1106674a21e699b155cbd53bf39387284cca:3.10/bullseye",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/python",
+    "org.opencontainers.image.version": "3.10.14-bullseye"
+  }
+}

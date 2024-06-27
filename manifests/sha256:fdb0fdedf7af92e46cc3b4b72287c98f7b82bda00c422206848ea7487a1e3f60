@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:9c1c0cdfbead59811d5cd8b8bd039f0ab806f71471e0313fcdcd115267ca9b4e",
+    "size": 7262
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:7e04e800a5f6b106e3f1cb53c3677b55297b3841c160edc0f657f7a27ffb9ad0",
+      "size": 53579678
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4148242bae3618c54f03447132a7364c4a46c509d204908b4d8b569f2cbbf18d",
+      "size": 25699643
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:8f0038ae14b2277791270ea7736f896040def15b2cfcc8a74ca0cfd14349e968",
+      "size": 69583876
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0fb32bd190e0cb532461d35afe27a691f4117106df93f8222c22c3c037b8b006",
+      "size": 214235513
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:395f9b00017d4f04b42b53cd8c7f67552446200615723928f0a9602e02a9a99e",
+      "size": 6899386
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b1a2630b13f4562bf532ff838767e856907f0df28269a0871828d88793a54119",
+      "size": 15975476
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:6fc542928837272ed36f6d695081e1e9bddbbfb9525943b3c2ef4ee23216922e",
+      "size": 231
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:528f10af1561f7adaa08e05989988143f3b098de22529cfe34d46eb518ffa7a7",
+      "size": 2849616
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "ppc64le",
+    "org.opencontainers.image.base.digest": "sha256:3fe609d9d847bf31a6147a461634bef76e5e5acd6ca7b260c4042517244b84f0",
+    "org.opencontainers.image.base.name": "buildpack-deps:bookworm",
+    "org.opencontainers.image.created": "2024-03-21T23:32:08Z",
+    "org.opencontainers.image.revision": "1b7a1106674a21e699b155cbd53bf39387284cca",
+    "org.opencontainers.image.source": "https://github.com/docker-library/python.git#1b7a1106674a21e699b155cbd53bf39387284cca:3.9/bookworm",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/python",
+    "org.opencontainers.image.version": "3.9.19-bookworm"
+  }
+}

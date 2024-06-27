@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:aa76546a89804bc63ac0610ba75c2ae4b4f0e42f3e2098fb1f1f6f22382dce4a",
+    "size": 6293
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b02dcd5eb44e382ea711bca074a007403db63dacf55f888b3a87214d1052dd50",
+      "size": 3571699
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:7d482d902cbfd1a19f31d17a2394c9c6cff6e2e555741838c62ccb041be5a4f8",
+      "size": 466001
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:966a25ce36289d2af19a914bcafedfb2da44e42ff592502e9c407b4426a63b90",
+      "size": 13172725
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:c966897d762125e5bb2d056da6ac0c0b2691932edae8caa68df1714a127e496b",
+      "size": 229
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:39baa8ad2a566eb8258a46ca7eb58e48bd526edd6cf42279eb417d1569f534c7",
+      "size": 3130013
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "ppc64le",
+    "org.opencontainers.image.base.digest": "sha256:8fa3fa82b01e0e121843fb6db22568eb28bdc22122959be6048480aa8ac05029",
+    "org.opencontainers.image.base.name": "alpine:3.20",
+    "org.opencontainers.image.created": "2024-06-12T22:54:11Z",
+    "org.opencontainers.image.revision": "2d4fb586c48b067b432cf56653ee2541d94fdd7d",
+    "org.opencontainers.image.source": "https://github.com/docker-library/python.git#2d4fb586c48b067b432cf56653ee2541d94fdd7d:3.11/alpine3.20",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/python",
+    "org.opencontainers.image.version": "3.11.9-alpine3.20"
+  }
+}

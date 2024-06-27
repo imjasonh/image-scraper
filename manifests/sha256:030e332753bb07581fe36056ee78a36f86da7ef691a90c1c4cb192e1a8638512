@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:3bd5f85906a20d83d0c2a6c35b071208d4d8951a33b4d3724e223c9c87ef37d0",
+    "size": 241
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.in-toto+json",
+      "digest": "sha256:1423db3da11c7e2774f304c9fc43aa7f5bc74859d05c080e3fa10907ac7c6285",
+      "size": 15431421,
+      "annotations": {
+        "in-toto.io/predicate-type": "https://spdx.dev/Document"
+      }
+    },
+    {
+      "mediaType": "application/vnd.in-toto+json",
+      "digest": "sha256:6307da5645a3d63967997c4d9ef33a8ac92fb27861b444fa5c4e4d413f7e2044",
+      "size": 23808,
+      "annotations": {
+        "in-toto.io/predicate-type": "https://slsa.dev/provenance/v0.2"
+      }
+    }
+  ]
+}
